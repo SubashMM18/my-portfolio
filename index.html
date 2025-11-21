@@ -28,45 +28,59 @@
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
+    }
+
+    html,body{
+      margin:0;
+      padding:0;
+      height:100%;
     }
 
     body {
-      margin: 0;
       background: var(--page-bg);
       font-family: 'Poppins', sans-serif;
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
     /* layout */
     .container {
-      width: min(1200px, 95%);
-      margin: 30px auto;
-      padding: 20px;
+      width: min(1200px, 96%);
+      margin: 20px auto;
+      padding: 12px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px
+      gap: 20px;
     }
 
     @media(min-width:900px) {
       .container {
         grid-template-columns: 360px 1fr;
-        align-items: flex-start
+        align-items: flex-start;
+        padding: 20px;
+        gap: 28px;
       }
     }
 
     /* left card */
     .left-card {
       background: var(--card);
-      padding: 32px;
-      border-radius: 18px;
+      padding: 20px;
+      border-radius: 14px;
       box-shadow: var(--shadow);
       position: sticky;
-      top: 20px;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast)
+      top: 14px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      max-width:100%;
+    }
+
+    @media(min-width:900px){
+      .left-card { padding: 32px; border-radius:18px; top:20px; }
     }
 
     .left-card:hover {
@@ -75,12 +89,16 @@
     }
 
     .avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 18px;
+      width: 110px;
+      height: 110px;
+      border-radius: 14px;
       overflow: hidden;
-      margin: 0 auto 14px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12)
+      margin: 0 auto 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    @media(min-width:900px){
+      .avatar { width:140px; height:140px; border-radius:18px; margin-bottom:14px; }
     }
 
     .avatar img {
@@ -99,11 +117,15 @@
     .left-title {
       text-align: center;
       margin-top: 6px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--accent);
       letter-spacing: 1px;
       transition: color var(--transition-fast), transform var(--transition-fast)
+    }
+
+    @media(min-width:900px){
+      .left-title { font-size:22px; }
     }
 
     .left-title:hover {
@@ -114,25 +136,22 @@
     .subtitle {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 18px;
-      transition: color var(--transition-fast)
-    }
-
-    .subtitle:hover {
-      color: #5f5f5f
+      margin-bottom: 12px;
+      transition: color var(--transition-fast);
+      font-size:14px;
     }
 
     .download-btn {
       display: block;
-      margin: 12px auto 12px;
-      padding: 12px 24px;
-      border-radius: 14px;
+      margin: 10px auto;
+      padding: 10px 18px;
+      border-radius: 12px;
       background: linear-gradient(90deg, #000, #222);
       color: white;
       font-weight: 700;
       text-decoration: none;
       text-align: center;
-      max-width: 86%;
+      max-width: 100%;
       border: 2px solid rgba(0, 0, 0, 0.6);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
@@ -146,9 +165,10 @@
 
     .contact-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
-      margin-top: 10px
+      margin-top: 8px;
+      flex-wrap:wrap;
     }
 
     .contact-link {
@@ -164,6 +184,7 @@
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
       cursor: pointer;
+      white-space:nowrap;
     }
 
     .contact-link svg {
@@ -186,9 +207,9 @@
     .info-grid {
       display: grid;
       grid-template-columns: 110px 1fr;
-      row-gap: 12px;
+      row-gap: 10px;
       font-size: 14px;
-      margin-top: 16px
+      margin-top: 12px;
     }
 
     .info-grid div {
@@ -209,15 +230,19 @@
     .right {
       display: flex;
       flex-direction: column;
-      gap: 22px
+      gap: 18px;
     }
 
     section {
       background: var(--card);
-      padding: 28px;
-      border-radius: 18px;
+      padding: 18px;
+      border-radius: 14px;
       box-shadow: var(--shadow);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
+    }
+
+    @media(min-width:900px){
+      section { padding:28px; border-radius:18px; }
     }
 
     section:hover {
@@ -226,11 +251,15 @@
     }
 
     section h2 {
-      margin: 0 0 12px;
-      font-size: 26px;
+      margin: 0 0 10px;
+      font-size: 20px;
       color: var(--accent);
       font-weight: 800;
       transition: letter-spacing var(--transition-fast)
+    }
+
+    @media(min-width:900px){
+      section h2 { font-size:26px; margin-bottom:12px; }
     }
 
     section h2:hover {
@@ -238,27 +267,27 @@
     }
 
     .divider {
-      width: 56px;
+      width: 48px;
       height: 6px;
       border-radius: 6px;
       background: linear-gradient(90deg, #000, #333);
-      margin-bottom: 16px
+      margin-bottom: 12px;
     }
 
     /* skills grid */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
     }
 
     .skill-card {
       background: var(--accent-soft);
-      padding: 16px;
-      border-radius: 12px;
+      padding: 12px;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
     }
 
@@ -286,7 +315,7 @@
     }
 
     .progress {
-      height: 12px;
+      height: 10px;
       background: var(--progress-bg);
       border-radius: 999px;
       overflow: hidden;
@@ -309,57 +338,51 @@
       transform: translateY(-2px)
     }
 
-    /* projects horizontal row */
+    /* projects responsive row -> grid on small screens */
     .projects {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: var(--gap);
       align-items: stretch;
-      overflow-x: auto;
       padding-bottom: 6px;
-      -webkit-overflow-scrolling: touch
+      -webkit-overflow-scrolling: touch;
     }
 
     .project {
-      min-width: 320px;
-      max-width: 360px;
-      flex: 0 0 320px;
-      padding: 18px;
+      padding: 14px;
       background: #fbfbfb;
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      min-width: 0; /* important to prevent overflow */
     }
 
+    .project h4{ margin:0 0 6px; font-size:16px; }
+    .project p{ margin:0; color:#333; font-size:14px; line-height:1.4; }
+
     .project:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: var(--box-hover-shadow);
       background: #fff
     }
 
     @media(min-width:1100px) {
       .projects {
-        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 18px;
-        overflow: visible
       }
-
-      .project {
-        min-width: unset;
-        flex: auto;
-        max-width: none
-      }
+      .project { padding:18px; }
     }
 
     .proj-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 8px
+      margin-top: 10px;
     }
 
     .proj-links a {
@@ -382,7 +405,7 @@
     .achievements-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
       align-items: stretch
     }
 
@@ -393,12 +416,12 @@
     }
 
     .achievements-grid .box {
-      padding: 12px 16px;
+      padding: 10px 12px;
       background: #f7f7f7;
       border-radius: 10px;
       font-weight: 700;
       color: var(--accent);
-      min-height: 64px;
+      min-height: 58px;
       display: flex;
       align-items: center;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
@@ -414,7 +437,7 @@
     .strengths-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
       align-items: stretch
     }
 
@@ -425,12 +448,12 @@
     }
 
     .strengths-grid .box {
-      padding: 12px 16px;
+      padding: 10px 12px;
       background: #f7f7f7;
       border-radius: 10px;
       font-weight: 700;
       color: var(--accent);
-      min-height: 64px;
+      min-height: 58px;
       display: flex;
       align-items: center;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
@@ -446,11 +469,11 @@
     .languages-list {
       display: flex;
       flex-direction: column;
-      gap: 12px
+      gap: 10px;
     }
 
     .languages-list .box {
-      padding: 12px 16px;
+      padding: 10px 12px;
       background: #f7f7f7;
       border-radius: 10px;
       font-weight: 700;
@@ -467,7 +490,7 @@
     /* reveal-on-scroll base */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(12px);
       transition: opacity .6s ease, transform .6s ease
     }
 
@@ -480,7 +503,7 @@
     form input,
     form textarea {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       border-radius: 10px;
       border: 1px solid #e5e5e5;
       margin-bottom: 12px;
@@ -529,106 +552,35 @@
     }
 
     /* small screens tweaks */
-    @media(max-width:480px) {
-      .left-card {
-        padding: 20px
-      }
-
-      .container {
-        padding: 12px
-      }
-
-      .project {
-        min-width: 260px;
-        flex: 0 0 260px
-      }
+    @media(max-width:520px) {
+      .left-card { padding:16px; border-radius:12px; }
+      .container { padding:8px; gap:12px; }
+      .left-title { font-size:16px; }
+      .subtitle { font-size:13px; margin-bottom:8px;}
+      .download-btn{ padding:10px 14px; font-size:13px; }
+      section{ padding:14px; border-radius:12px; }
+      section h2{ font-size:18px; }
+      .divider{ width:40px; height:5px; }
+      .info-grid{ grid-template-columns: 100px 1fr; font-size:13px; }
+      .skills-grid{ grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:10px; }
+      .skill-card{ padding:10px; }
+      .progress{ height:9px; }
+      .achievements-grid, .strengths-grid{ grid-template-columns: repeat(2,1fr); gap:8px;}
+      .achievements-grid .box, .strengths-grid .box{ padding:9px 10px; min-height:48px; }
+      .languages-list .box{ padding:9px 10px; }
+      .project{ padding:12px; }
+      .proj-links{ gap:8px; margin-top:8px;}
+      form input, form textarea{ padding:10px; }
+      .form-actions{ gap:8px; }
+      html,body{ overflow-x:hidden; }
+      img{ max-width:100%; height:auto; display:block; }
     }
-    /* Mobile responsive tweaks */
-@media (max-width: 480px) {
-  :root {
-    --gap: 12px;
-  }
 
-  /* container */
-  .container {
-    margin: 18px auto;
-    padding: 10px;
-    width: 96%;
-  }
+    /* ensure no horizontal overflow at any size */
+    html,body{ max-width:100%; overflow-x:hidden; }
 
-  /* left card smaller padding & radius */
-  .left-card {
-    padding: 18px;
-    border-radius: 12px;
-    top: 8px;
-  }
-
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 12px;
-  }
-
-  .left-title {
-    font-size: 18px;
-  }
-
-  .download-btn {
-    padding: 10px 16px;
-    max-width: 100%;
-    font-size: 13px;
-  }
-
-  /* make section cards more compact */
-  section {
-    padding: 18px;
-    border-radius: 12px;
-  }
-
-  section h2 { font-size: 20px; }
-
-  .divider { height: 5px; width: 48px; }
-
-  /* reduce skill card padding */
-  .skill-card { padding: 12px; }
-  .progress { height: 10px; }
-  .skill-name { font-size: 14px; }
-
-  /* projects and project cards */
-  .projects { gap: 12px; padding-bottom: 8px; }
-  .project {
-    min-width: 220px;
-    padding: 14px;
-    border-radius: 10px;
-  }
-
-  /* achievements/strengths boxes */
-  .achievements-grid .box,
-  .strengths-grid .box,
-  .languages-list .box {
-    padding: 10px 12px;
-    min-height: 56px;
-    font-size: 14px;
-  }
-
-  /* form */
-  form input, form textarea { padding: 10px; }
-  .form-actions { gap: 8px; }
-  form button, .email-btn { padding: 10px 12px; font-size: 13px; }
-
-  /* images should never overflow */
-  img { max-width: 100%; height: auto; display: block; }
-
-  /* reduce big shadows slightly on mobile for clarity */
-  .left-card, section, .project { box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
-
-  /* fine-tune text sizes */
-  p, li, .info-grid div { font-size: 14px; line-height: 1.45; }
-  .info-label { font-size: 13px; }
-
-  /* ensure no horizontal scrolling */
-  html, body { overflow-x: hidden; }
-}
+    /* accessibility focus */
+    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(0,0,0,0.06); outline-offset:2px; }
 
   </style>
 </head>
@@ -653,10 +605,10 @@
       <!-- new contact buttons: LinkedIn, Email, GitHub -->
       <div class="contact-row">
         <!-- LinkedIn -->
-        <a class="contact-link" href="https://www.linkedin.com/in/subash-mm" target="_blank">LinkedIn</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/subash-mm" target="_blank" rel="noopener">LinkedIn</a>
 
         <!-- GitHub -->
-        <a class="contact-link" href="https://github.com/SubashMM18" target="_blank">GitHub</a>
+        <a class="contact-link" href="https://github.com/SubashMM18" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <div class="info-grid" aria-hidden="false">
@@ -681,7 +633,7 @@
         <div class="divider"></div>
         <p>B.Tech IT student skilled in Java, C, HTML, CSS, SQL, Firebase and Database Management with Git/GitHub.
           Completed internships in Web Development and MERN Stack, gaining practical experience in both frontend and
-          backend development. Quick learner with strong problem-solving and teamwork abilities.</p>
+          backend development. Quick learner with strong problem-solving and teamwork abilities..</p>
       </section>
 
       <!-- TECHNICAL SKILLS -->
@@ -796,7 +748,7 @@
               <p>Responsive portfolio built with HTML/CSS/JS — showcases projects, resume and contact form.</p>
             </div>
             <div class="proj-links"><a href="https://github.com/SubashMM18/my-portfolio" target="_blank"
-                rel="noopener">Code</a><a href="https://miniproject-2db9d.web.app" target="_blank"
+                rel="noopener">Code</a><a href="https://subashmm18.github.io/my-portfolio/" target="_blank"
                 rel="noopener">Demo</a></div>
           </div>
 
