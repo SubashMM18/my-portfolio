@@ -543,6 +543,93 @@
         flex: 0 0 260px
       }
     }
+    /* Mobile responsive tweaks */
+@media (max-width: 480px) {
+  :root {
+    --gap: 12px;
+  }
+
+  /* container */
+  .container {
+    margin: 18px auto;
+    padding: 10px;
+    width: 96%;
+  }
+
+  /* left card smaller padding & radius */
+  .left-card {
+    padding: 18px;
+    border-radius: 12px;
+    top: 8px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+  }
+
+  .left-title {
+    font-size: 18px;
+  }
+
+  .download-btn {
+    padding: 10px 16px;
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  /* make section cards more compact */
+  section {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  section h2 { font-size: 20px; }
+
+  .divider { height: 5px; width: 48px; }
+
+  /* reduce skill card padding */
+  .skill-card { padding: 12px; }
+  .progress { height: 10px; }
+  .skill-name { font-size: 14px; }
+
+  /* projects and project cards */
+  .projects { gap: 12px; padding-bottom: 8px; }
+  .project {
+    min-width: 220px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  /* achievements/strengths boxes */
+  .achievements-grid .box,
+  .strengths-grid .box,
+  .languages-list .box {
+    padding: 10px 12px;
+    min-height: 56px;
+    font-size: 14px;
+  }
+
+  /* form */
+  form input, form textarea { padding: 10px; }
+  .form-actions { gap: 8px; }
+  form button, .email-btn { padding: 10px 12px; font-size: 13px; }
+
+  /* images should never overflow */
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* reduce big shadows slightly on mobile for clarity */
+  .left-card, section, .project { box-shadow: 0 8px 18px rgba(0,0,0,0.06); }
+
+  /* fine-tune text sizes */
+  p, li, .info-grid div { font-size: 14px; line-height: 1.45; }
+  .info-label { font-size: 13px; }
+
+  /* ensure no horizontal scrolling */
+  html, body { overflow-x: hidden; }
+}
+
   </style>
 </head>
 
