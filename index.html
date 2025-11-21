@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subash M — Portfolio (Black & White)</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --page-bg: #0b0b0b;
+      --card: #ffffff;
+      --text: #0b0b0b;
+      --muted: #6b6b6b;
+      --accent: #000000;
+      --accent-soft: #f6f6f6;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      --link-hover: #333333;
+      --gap: 18px;
+      --progress-bg: #eceff5;
+      --progress-fill: #222;
+      --box-hover-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --transition-fast: .12s ease;
+      --transition-medium: .18s ease;
+      --transition-slow: .35s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* layout */
+    .container {
+      width: min(1200px, 95%);
+      margin: 30px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px
+    }
+
+    @media(min-width:900px) {
+      .container {
+        grid-template-columns: 360px 1fr;
+        align-items: flex-start
+      }
+    }
+
+    /* left card */
+    .left-card {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 20px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast)
+    }
+
+    .left-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow)
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12)
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-slow), filter var(--transition-fast)
+    }
+
+    .avatar:hover img {
+      transform: scale(1.04);
+      filter: brightness(.98) saturate(1.02)
+    }
+
+    .left-title {
+      text-align: center;
+      margin-top: 6px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 1px;
+      transition: color var(--transition-fast), transform var(--transition-fast)
+    }
+
+    .left-title:hover {
+      color: var(--link-hover);
+      transform: translateY(-2px)
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 18px;
+      transition: color var(--transition-fast)
+    }
+
+    .subtitle:hover {
+      color: #5f5f5f
+    }
+
+    .download-btn {
+      display: block;
+      margin: 12px auto 12px;
+      padding: 12px 24px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #000, #222);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      max-width: 86%;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .download-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-hover-shadow);
+      background: linear-gradient(90deg, #111, #333)
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 10px
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
+    }
+
+    .contact-link svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: transform var(--transition-fast)
+    }
+
+    .contact-link:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    .contact-link:hover svg {
+      transform: translateY(-3px)
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      row-gap: 12px;
+      font-size: 14px;
+      margin-top: 16px
+    }
+
+    .info-grid div {
+      transition: transform var(--transition-fast), color var(--transition-fast)
+    }
+
+    .info-label {
+      color: var(--accent);
+      font-weight: 700
+    }
+
+    .info-grid div:not(.info-label):hover {
+      transform: translateX(4px);
+      color: #111
+    }
+
+    /* right side */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 22px
+    }
+
+    section {
+      background: var(--card);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
+    }
+
+    section:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow)
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      color: var(--accent);
+      font-weight: 800;
+      transition: letter-spacing var(--transition-fast)
+    }
+
+    section h2:hover {
+      letter-spacing: 1.6px
+    }
+
+    .divider {
+      width: 56px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #000, #333);
+      margin-bottom: 16px
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px
+    }
+
+    .skill-card {
+      background: var(--accent-soft);
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    .skill-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .skill-name {
+      font-weight: 800;
+      color: var(--accent)
+    }
+
+    .skill-level {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .progress {
+      height: 12px;
+      background: var(--progress-bg);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--progress-fill), #555);
+      border-radius: 999px;
+      transition: width 900ms cubic-bezier(.2, .9, .2, 1)
+    }
+
+    .skill-card:hover .progress-fill {
+      filter: brightness(.98)
+    }
+
+    .skill-card:hover .progress {
+      transform: translateY(-2px)
+    }
+
+    /* projects horizontal row */
+    .projects {
+      display: flex;
+      gap: var(--gap);
+      align-items: stretch;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch
+    }
+
+    .project {
+      min-width: 320px;
+      max-width: 360px;
+      flex: 0 0 320px;
+      padding: 18px;
+      background: #fbfbfb;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    @media(min-width:1100px) {
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        overflow: visible
+      }
+
+      .project {
+        min-width: unset;
+        flex: auto;
+        max-width: none
+      }
+    }
+
+    .proj-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 8px
+    }
+
+    .proj-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: all var(--transition-fast)
+    }
+
+    .proj-links a:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-3px)
+    }
+
+    /* achievements grid */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch
+    }
+
+    @media(min-width:900px) {
+      .achievements-grid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .achievements-grid .box {
+      padding: 12px 16px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      font-weight: 700;
+      color: var(--accent);
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .achievements-grid .box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    /* strengths grid (same style as achievements) */
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch
+    }
+
+    @media(min-width:900px) {
+      .strengths-grid {
+        grid-template-columns: repeat(4, 1fr)
+      }
+    }
+
+    .strengths-grid .box {
+      padding: 12px 16px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      font-weight: 700;
+      color: var(--accent);
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .strengths-grid .box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    /* languages vertical list */
+    .languages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .languages-list .box {
+      padding: 12px 16px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      font-weight: 700;
+      color: var(--accent);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast)
+    }
+
+    .languages-list .box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--box-hover-shadow);
+      background: #fff
+    }
+
+    /* reveal-on-scroll base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* form */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 12px;
+      transition: box-shadow var(--transition-fast), transform var(--transition-fast)
+    }
+
+    form input:focus,
+    form textarea:focus {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      outline: none;
+      transform: translateY(-2px)
+    }
+
+    /* NEW: buttons wrapper so Send & Email Me come side-by-side */
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    form button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast)
+    }
+
+    form button:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--box-hover-shadow)
+    }
+
+    /* NEW: Email Me button style */
+    .email-btn {
+      background: #ffffff;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .email-btn:hover {
+      background: #f5f5f5;
+    }
+
+    /* small screens tweaks */
+    @media(max-width:480px) {
+      .left-card {
+        padding: 20px
+      }
+
+      .container {
+        padding: 12px
+      }
+
+      .project {
+        min-width: 260px;
+        flex: 0 0 260px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- LEFT PROFILE CARD -->
+    <div class="left-card">
+      <div class="avatar">
+        <!-- local path from your environment (keeps the path you uploaded earlier) -->
+        <img src="my image.jpg" alt="profile">
+      </div>
+
+      <div class="left-title">SUBASH M</div>
+      <div class="subtitle">Final-year B.Tech IT Student</div>
+
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1ISoGhxKTJD87SNGgpCbkabkSHnIblIwW"
+        download="SUBASH_M_Resume.pdf">Download Resume</a>
+
+      <!-- new contact buttons: LinkedIn, Email, GitHub -->
+      <div class="contact-row">
+        <!-- LinkedIn -->
+        <a class="contact-link" href="https://www.linkedin.com/in/subash-mm" target="_blank">LinkedIn</a>
+
+        <!-- GitHub -->
+        <a class="contact-link" href="https://github.com/SubashMM18" target="_blank">GitHub</a>
+      </div>
+
+      <div class="info-grid" aria-hidden="false">
+        <div class="info-label">Name:</div>
+        <div>SUBASH M</div>
+        <div class="info-label">Phone:</div>
+        <div>+91 6379961513</div>
+        <div class="info-label">Email:</div>
+        <div>mmsubash2004@gmail.com</div>
+        <div class="info-label">DOB:</div>
+        <div>April 20, 2004</div>
+        <div class="info-label">Address:</div>
+        <div>Tirunelveli</div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+      <section class="reveal">
+        <h2>Profile</h2>
+        <div class="divider"></div>
+        <p>B.Tech IT student skilled in Java, C, HTML, CSS, SQL, Firebase and Database Management with Git/GitHub.
+          Completed internships in Web Development and MERN Stack, gaining practical experience in both frontend and
+          backend development. Quick learner with strong problem-solving and teamwork abilities.</p>
+      </section>
+
+      <!-- TECHNICAL SKILLS -->
+      <section id="skillsSection" class="reveal">
+        <h2>Technical Skills</h2>
+        <div class="divider"></div>
+
+        <div class="skills-grid">
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">Java</div>
+              <div class="skill-level">80%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="80"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">Python</div>
+              <div class="skill-level">60%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="60"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">SQL / Databases</div>
+              <div class="skill-level">60%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="60"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">HTML &amp; CSS</div>
+              <div class="skill-level">92%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="92"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">MERN Stack</div>
+              <div class="skill-level">65%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="65"></div>
+            </div>
+          </div>
+
+          <div class="skill-card" data-animate>
+            <div class="skill-head">
+              <div class="skill-name">Firebase</div>
+              <div class="skill-level">68%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-fill" data-percent="68"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Education</h2>
+        <div class="divider"></div>
+        <div class="timeline">
+          <div class="item">
+            <h3>2022 - Present</h3>
+            <p>B.Tech IT — GPA 80.0%</p>
+          </div>
+          <div class="item">
+            <h3>2020 - 2022</h3>
+            <p>Higher Secondary — 65.26%</p>
+          </div>
+          <div class="item">
+            <h3>Till 2020</h3>
+            <p>Secondary School — 72.6%</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Internship</h2>
+        <div class="divider"></div>
+        <div class="timeline">
+          <div class="item">
+            <h3>NoviTech (Online)</h3>
+            <p>1-month internship focusing on Full Stack Web Development.</p>
+          </div>
+          <div class="item">
+            <h3>CodeBind (Offline)</h3>
+            <p>2-week Web Development Internship.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>My Projects</h2>
+        <div class="divider"></div>
+        <div class="projects">
+          <div class="project">
+            <div>
+              <h4>My Portfolio</h4>
+              <p>Responsive portfolio built with HTML/CSS/JS — showcases projects, resume and contact form.</p>
+            </div>
+            <div class="proj-links"><a href="https://github.com/SubashMM18/my-portfolio" target="_blank"
+                rel="noopener">Code</a><a href="https://miniproject-2db9d.web.app" target="_blank"
+                rel="noopener">Demo</a></div>
+          </div>
+
+          <div class="project">
+            <div>
+              <h4>Scholarship Eligibility Portal — Benefit Bridge</h4>
+              <p>Portal that recommends eligible scholarships using filters & Firebase (Auth + Firestore).</p>
+            </div>
+            <div class="proj-links"><a href="https://github.com/SubashMM18/beiefitbridge" target="_blank"
+                rel="noopener">Code</a><a href="https://miniproject-2db9d.web.app" target="_blank"
+                rel="noopener">Demo</a></div>
+          </div>
+
+          <div class="project">
+            <div>
+              <h4>Basic Calculator</h4>
+              <p>Small JS calculator with immediate operations and keyboard support.</p>
+            </div>
+            <div class="proj-links"><a href="https://github.com/SubashMM18/my-calculator" target="_blank"
+                rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Achievements</h2>
+        <div class="divider"></div>
+        <div class="achievements-grid">
+          <div class="box">Oracle PL/SQL Certification</div>
+          <div class="box">IIT Bombay Spoken Tutorial</div>
+          <div class="box">Joint Secretary — Brigitz Association</div>
+          <div class="box">Rajya Puraskar awardee (Scouts & Guides)</div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Strengths</h2>
+        <div class="divider"></div>
+        <div class="strengths-grid">
+          <div class="box">Teamwork</div>
+          <div class="box">Problem Solving</div>
+          <div class="box">Adaptability</div>
+          <div class="box">Time Management</div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Languages Known</h2>
+        <div class="divider"></div>
+        <div class="languages-list">
+          <div class="box">English</div>
+          <div class="box">Tamil</div>
+          <div class="box">Hindi</div>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <h2>Contact Me</h2>
+        <div class="divider"></div>
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" rows="4"></textarea>
+
+          <!-- NEW: Send + Email Me buttons -->
+          <div class="form-actions">
+            <button type="submit">Send</button>
+            <button type="button" class="email-btn"
+              onclick="window.location.href='mailto:mmsubash2004@gmail.com'">
+              Email Me
+            </button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    /* IntersectionObserver reveal + progress animation */
+    document.addEventListener('DOMContentLoaded', function () {
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // progress animation for skill-cards
+      const progressObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const fill = entry.target.querySelector('.progress-fill');
+            if (fill && fill.dataset && fill.dataset.percent) {
+              setTimeout(() => fill.style.width = fill.dataset.percent + '%', 80);
+            }
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+
+      document.querySelectorAll('.skill-card').forEach(card => progressObserver.observe(card));
+
+      // keyboard focus outlines for links and interactive elements
+      document.querySelectorAll('a, button, input, textarea').forEach(el => {
+        el.addEventListener('focus', () => el.style.outline = '3px solid rgba(0,0,0,0.06)');
+        el.addEventListener('blur', () => el.style.outline = 'none');
+      });
+    });
+  </script>
+</body>
+
+</html>
