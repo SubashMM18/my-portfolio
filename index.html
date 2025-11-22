@@ -31,10 +31,11 @@
       box-sizing: border-box;
     }
 
-    html,body{
-      margin:0;
-      padding:0;
-      height:100%;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
     }
 
     body {
@@ -44,8 +45,8 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       -webkit-tap-highlight-color: transparent;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* layout */
@@ -76,11 +77,15 @@
       position: sticky;
       top: 14px;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-      max-width:100%;
+      max-width: 100%;
     }
 
-    @media(min-width:900px){
-      .left-card { padding: 32px; border-radius:18px; top:20px; }
+    @media(min-width:900px) {
+      .left-card {
+        padding: 32px;
+        border-radius: 18px;
+        top: 20px;
+      }
     }
 
     .left-card:hover {
@@ -97,8 +102,13 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
-    @media(min-width:900px){
-      .avatar { width:140px; height:140px; border-radius:18px; margin-bottom:14px; }
+    @media(min-width:900px) {
+      .avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 18px;
+        margin-bottom: 14px;
+      }
     }
 
     .avatar img {
@@ -124,8 +134,10 @@
       transition: color var(--transition-fast), transform var(--transition-fast)
     }
 
-    @media(min-width:900px){
-      .left-title { font-size:22px; }
+    @media(min-width:900px) {
+      .left-title {
+        font-size: 22px;
+      }
     }
 
     .left-title:hover {
@@ -138,7 +150,7 @@
       color: var(--muted);
       margin-bottom: 12px;
       transition: color var(--transition-fast);
-      font-size:14px;
+      font-size: 14px;
     }
 
     .download-btn {
@@ -168,7 +180,7 @@
       gap: 10px;
       justify-content: center;
       margin-top: 8px;
-      flex-wrap:wrap;
+      flex-wrap: wrap;
     }
 
     .contact-link {
@@ -184,7 +196,7 @@
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
       cursor: pointer;
-      white-space:nowrap;
+      white-space: nowrap;
     }
 
     .contact-link svg {
@@ -241,8 +253,11 @@
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)
     }
 
-    @media(min-width:900px){
-      section { padding:28px; border-radius:18px; }
+    @media(min-width:900px) {
+      section {
+        padding: 28px;
+        border-radius: 18px;
+      }
     }
 
     section:hover {
@@ -258,8 +273,11 @@
       transition: letter-spacing var(--transition-fast)
     }
 
-    @media(min-width:900px){
-      section h2 { font-size:26px; margin-bottom:12px; }
+    @media(min-width:900px) {
+      section h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
     }
 
     section h2:hover {
@@ -357,11 +375,21 @@
       flex-direction: column;
       justify-content: space-between;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-      min-width: 0; /* important to prevent overflow */
+      min-width: 0;
+      /* important to prevent overflow */
     }
 
-    .project h4{ margin:0 0 6px; font-size:16px; }
-    .project p{ margin:0; color:#333; font-size:14px; line-height:1.4; }
+    .project h4 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .project p {
+      margin: 0;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.4;
+    }
 
     .project:hover {
       transform: translateY(-6px);
@@ -374,7 +402,10 @@
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 18px;
       }
-      .project { padding:18px; }
+
+      .project {
+        padding: 18px;
+      }
     }
 
     .proj-links {
@@ -553,35 +584,123 @@
 
     /* small screens tweaks */
     @media(max-width:520px) {
-      .left-card { padding:16px; border-radius:12px; }
-      .container { padding:8px; gap:12px; }
-      .left-title { font-size:16px; }
-      .subtitle { font-size:13px; margin-bottom:8px;}
-      .download-btn{ padding:10px 14px; font-size:13px; }
-      section{ padding:14px; border-radius:12px; }
-      section h2{ font-size:18px; }
-      .divider{ width:40px; height:5px; }
-      .info-grid{ grid-template-columns: 100px 1fr; font-size:13px; }
-      .skills-grid{ grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:10px; }
-      .skill-card{ padding:10px; }
-      .progress{ height:9px; }
-      .achievements-grid, .strengths-grid{ grid-template-columns: repeat(2,1fr); gap:8px;}
-      .achievements-grid .box, .strengths-grid .box{ padding:9px 10px; min-height:48px; }
-      .languages-list .box{ padding:9px 10px; }
-      .project{ padding:12px; }
-      .proj-links{ gap:8px; margin-top:8px;}
-      form input, form textarea{ padding:10px; }
-      .form-actions{ gap:8px; }
-      html,body{ overflow-x:hidden; }
-      img{ max-width:100%; height:auto; display:block; }
+      .left-card {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .container {
+        padding: 8px;
+        gap: 12px;
+      }
+
+      .left-title {
+        font-size: 16px;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .download-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      section {
+        padding: 14px;
+        border-radius: 12px;
+      }
+
+      section h2 {
+        font-size: 18px;
+      }
+
+      .divider {
+        width: 40px;
+        height: 5px;
+      }
+
+      .info-grid {
+        grid-template-columns: 100px 1fr;
+        font-size: 13px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .skill-card {
+        padding: 10px;
+      }
+
+      .progress {
+        height: 9px;
+      }
+
+      .achievements-grid,
+      .strengths-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .achievements-grid .box,
+      .strengths-grid .box {
+        padding: 9px 10px;
+        min-height: 48px;
+      }
+
+      .languages-list .box {
+        padding: 9px 10px;
+      }
+
+      .project {
+        padding: 12px;
+      }
+
+      .proj-links {
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      form input,
+      form textarea {
+        padding: 10px;
+      }
+
+      .form-actions {
+        gap: 8px;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
     }
 
     /* ensure no horizontal overflow at any size */
-    html,body{ max-width:100%; overflow-x:hidden; }
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
     /* accessibility focus */
-    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(0,0,0,0.06); outline-offset:2px; }
-
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(0, 0, 0, 0.06);
+      outline-offset: 2px;
+    }
   </style>
 </head>
 
@@ -599,8 +718,8 @@
       <div class="left-title">SUBASH M</div>
       <div class="subtitle">Final-year B.Tech IT Student</div>
 
-      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1ISoGhxKTJD87SNGgpCbkabkSHnIblIwW"
-        download="SUBASH_M_Resume.pdf">Download Resume</a>
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1Z5HvB6HGtrYqt_Ziia8v673Asuts4X3i
+" download="SUBASH_M_Resume.pdf">Download Resume</a>
 
       <!-- new contact buttons: LinkedIn, Email, GitHub -->
       <div class="contact-row">
@@ -816,8 +935,7 @@
           <!-- NEW: Send + Email Me buttons -->
           <div class="form-actions">
             <button type="submit">Send</button>
-            <button type="button" class="email-btn"
-              onclick="window.location.href='mailto:mmsubash2004@gmail.com'">
+            <button type="button" class="email-btn" onclick="window.location.href='mailto:mmsubash2004@gmail.com'">
               Email Me
             </button>
           </div>
